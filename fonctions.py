@@ -38,7 +38,7 @@ def choosePrimesNumbers():
 def getBobParameters():
     n = 0
     while n < 255:
-        print('Choose two prime numbers. Their product must be greater than 200.')
+        print('Choose two prime numbers. Their product must be greater than 255.')
         p = choosePrimesNumbers()
         q = choosePrimesNumbers()
         n = p * q
