@@ -38,7 +38,7 @@ def choosePrimesNumbers():
 def getBobParameters():
     #because n must be greater than character unicode for crypt/decrypt message
     n = 0
-    while n < 200:
+    while n < 255:
         print('Choose two prime numbers. Their product must be greater than 200.')
         p = choosePrimesNumbers()
         q = choosePrimesNumbers()
