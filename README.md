@@ -5,3 +5,7 @@ Toutes les fonctions sont contenues dans le fichier fonctions.py, le fichier mai
 ### Remarques
   - Il est demandé de choisir deux nombres premiers (p et q) tel que n (=p*q) soit supérieur à 255 afin de pouvoir crypter/décrypter chaque caractère du message selon son code Unicode. En effet, comme cela les fonctions prennent en compte la plupart des caractères alpha-numériques Latin.
   - Pour vérifier si un nombre est premier je teste chaque entier entre 2 et sa racine. Si il n'a aucun diviseur alors il est premier.
+
+### Résultats
+
+![Result](https://github.com/Jzorgui/RSA/blob/main/PrintResult.png)
