@@ -127,9 +127,9 @@ def getPrimeDecompostion(number):
             divisor += 1
     if len(listDivisors) == 1:
         listDivisors.append(1)
-    p = listDivisors[0]
-    q = listDivisors[1]
-    return p, q
+    firstDivisor = listDivisors[0]
+    secondDivisor = listDivisors[1]
+    return firstDivisor, secondDivisor
 
 
 
