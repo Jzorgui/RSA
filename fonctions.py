@@ -29,14 +29,13 @@ def testIsPrimeNumber(testNumber):
 def choosePrimesNumbers():
     isPrimeNumber = False
     while isPrimeNumber != True:
-        primeNumber = getUserInput(displayMessage = 'Choose a prime number : ', inputType = int)
-        isPrimeNumber = testIsPrimeNumber(primeNumber)
-    return primeNumber
+        number = getUserInput(displayMessage = 'Choose a prime number : ', inputType = int)
+        isPrimeNumber = testIsPrimeNumber(number)
+    return number
 
 
 
 def getBobParameters():
-    #because n must be greater than character unicode for crypt/decrypt message
     n = 0
     while n < 255:
         print('Choose two prime numbers. Their product must be greater than 200.')
@@ -59,14 +58,13 @@ def testIsRelativelyPrime(firstNumber, testNumber):
 def chooseRelativelyPrimeNumber(phi):
     isRelativelyPrime = False
     while isRelativelyPrime != True:
-        e = getUserInput(displayMessage = 'Choose a number relatively prime to ' + str(phi) + ' : ', inputType = int)
-        isRelativelyPrime = testIsRelativelyPrime(phi, e)
-    return e
+        number = getUserInput(displayMessage = 'Choose a number relatively prime to ' + str(phi) + ' : ', inputType = int)
+        isRelativelyPrime = testIsRelativelyPrime(phi, number)
+    return number
 
 
 
 def getPrivateKey(phi, e):
-    # au + bv = gcd(a,b)
     for number in range(1, phi-1):
         if (e*number)%phi == 1:
             d = number
@@ -92,8 +90,8 @@ def getMessageUnicode(message):
 
 
 def getUserMessage():
-    message = getUserInput(displayMessage = 'Enter a message to encrypt : ', inputType = str)
-    messageUnicode = getMessageUnicode(message)
+    messageInitial = getUserInput(displayMessage = 'Enter a message to encrypt : ', inputType = str)
+    messageUnicode = getMessageUnicode(messageInitial)
     return messageUnicode
 
 
@@ -118,19 +116,17 @@ def decryptMessage(cryptMessage, n, d):
 
 
 
-def getPrimeDecompostion(n): 
-    d = 2
+def getPrimeDecompostion(number): 
+    divisor = 2
     listDivisors = []
-    while d <= n:
-        if n%d == 0:
-            listDivisors.append(d)
-            n = n/d
+    while divisor <= number:
+        if number%divisor == 0:
+            listDivisors.append(divisor)
+            number = number/divisor
         else:
-            d = d + 1
-
+            divisor += 1
     if len(listDivisors) == 1:
         listDivisors.append(1)
-
     p = listDivisors[0]
     q = listDivisors[1]
     return p, q
@@ -145,5 +141,5 @@ def crackMessage(cryptMessage, n, e):
     crackedMessage = decryptMessage(cryptMessage, n, d)
     endTimer = time.time()
     timer = round(endTimer - startTimer, 4)
-    print("Message cracked in : " + str(timer) + " seconds")
+    print('Message cracked in : ' + str(timer) + ' seconds')
     return crackedMessage
